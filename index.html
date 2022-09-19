@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" type="image/x-icon" href="./favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>EXCEL</title>
+  </head>
+  <body>
+    <!-- PAGE ACTIONS -->
+    <div class="page-actions-cont">
+      <div class="page-action">Home</div>
+      <div class="page-action">File</div>
+      <div class="page-action">Insert</div>
+      <div class="page-action">Layout</div>
+      <div class="page-action">Help</div>
+    </div>
+
+    <!-- Cell Properties  -->
+    <div class="cellprop-actions-cont">
+      <span class="material-icons"> content_copy </span>
+      <span class="material-icons"> content_cut </span>
+      <span class="material-icons"> content_paste </span>
+      <select class="font-family-prop">
+        <option value="arial">arial</option>
+        <option value="sans-serif">Sans-Serif</option>
+        <option value="open sans">open sans</option>
+        <option value="cursive">cursive</option>
+      </select>
+      <select class="font-size-prop">
+        <option value="14">14</option>
+        <option value="16">16</option>
+        <option value="18">18</option>
+        <option value="20">20</option>
+      </select>
+      <span class="material-icons"> format_bold </span>
+      <span class="material-icons"> format_italic </span>
+      <span class="material-icons"> format_underlined </span>
+      <span class="material-icons"> format_align_left </span>
+      <span class="material-icons"> format_align_center </span>
+      <span class="material-icons"> format_align_right </span>
+    </div>
+
+    <!-- Formula Bar  -->
+    <div class="formula-actions-cont">
+        <input type="text" class="address-bar">
+        <img src="https://img.icons8.com/ios/50/000000/formula-fx.png" alt="function-icon" class="formula-icon">
+        <input type="text" class="formula-bar">
+    </div>
+
+    <!-- Cells -->
+    <div class="grid-cont">
+        <div class="top-left-dummy-box"></div>
+        <div class="address-row-cont"></div>
+        <div class="cells-cont">
+            <div class="address-col-cont"></div>
+        </div>
+    </div>
+
+    <!-- SHEET ACTIONS -->
+    <div class="sheet-actions-cont">
+        <div class="sheet-add-icon">
+            <span class="material-icons">
+                post_add
+            </span>
+        </div>
+        <div class="sheets-folder-cont">
+            <div class="sheet-folder">Sheet1</div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
