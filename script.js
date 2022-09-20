@@ -30,6 +30,11 @@ for (let i = 0; i < rows; i++) {
     let cell = document.createElement("div");
     cell.setAttribute("class", "cell");
     cell.setAttribute("contenteditable", "true");
+    cell.style.overflow = "overlay";
+    // Setting Attributes for cell and storage identification
+    cell.setAttribute("rid", i);
+    cell.setAttribute("cid", j);
+
     row.appendChild(cell);
     displayAddBar(cell, i, j);
   }
@@ -44,3 +49,7 @@ function displayAddBar(cell, i, j) {
     addressBar.value = `${colID}${rowID}`;
   });
 }
+
+// By Default click on first cell via DOM
+let firstCell = document.querySelector('.cell');
+firstCell.click();
