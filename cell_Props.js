@@ -12,7 +12,10 @@ for (let i = 0; i < rows; i++) {
       fontFamily: "arial",
       fontSize: "14",
       fontColor: "#000000",
-      BGColor: "transparent",
+      BGColor: "#000000",
+      value: "",
+      formula: "",
+      children: [],
     };
     sheetRow.push(cellProps);
   }
@@ -154,7 +157,7 @@ function addListenerToAttachCellProps(cell) {
     cell.style.fontSize = cellProp.fontSize + "px";
     cell.style.fontFamily = cellProp.fontFamily;
     cell.style.color = cellProp.fontColor;
-    cell.style.backgroundColor = cellProp.BGColor;
+    cell.style.backgroundColor = cellProp.BGColor == "#000000" ? "transparent" : cellProp.BGColor;
     cell.style.textAlign = cellProp.alignment;
 
     //Applying Cell Properties to UI:
@@ -168,7 +171,7 @@ function addListenerToAttachCellProps(cell) {
     fontColor.value = cellProp.fontColor;
     BGColor.value = cellProp.BGColor;
 
-    switch (cellProp.alignValue) {
+    switch (cellProp.alignment) {
       case "left":
         leftAlign.style.backgroundColor = "#9dabab";
         centerAlign.style.backgroundColor = "#cdcfcf";
@@ -187,6 +190,10 @@ function addListenerToAttachCellProps(cell) {
         rightAlign.style.backgroundColor = "#9dabab";
         break;
     }
+
+    let formulaBar = document.querySelector(".formula-bar");
+    formulaBar.value = cellProp.formula;
+    cell.value = cellProp.value;
   });
 }
 
