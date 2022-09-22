@@ -26,6 +26,19 @@ formulaBar.addEventListener("keydown", (e) => {
     if (inputFormula != cellProp.formula)
       removeChildFromParent(cellProp.formula);
 
+    // Before evaluating the formula we need to add the child cell to the parent(again) but in the directed graph.
+    addChildToGraphComponent(inputFormula, address);
+    // After adding, we'd check if cycle is present or not, then we'll evaluate the formula.
+    let isCyclic = isCyclePresent(graphComponent);
+    if (isCyclic) {
+      alert(
+        "Cycle has been found | Your formula is cyclic. Kindly give it a look 😃😄!!! "
+      );
+      // Now remove dependency.
+      removeChildFromGraphComponent(inputFormula, address);
+      return;
+    }
+
     let evaluatedVal = evaluateFormula(inputFormula);
 
     // Now, update CELL UI AND CELLPROP
@@ -36,12 +49,40 @@ formulaBar.addEventListener("keydown", (e) => {
   }
 });
 
+// This function is to add child to the graph component.
+function addChildToGraphComponent(formula, childAddress) {
+  let [childRowID, childColID] = decodeAddress(childAddress);
+  let encodedFormula = formula.split(" ");
+
+  for (let i = 0; i < encodedFormula.length; i++) {
+    let asciiVal = encodedFormula[i].charCodeAt(0);
+    if (asciiVal >= 65 && asciiVal <= 90) {
+      let [parentRowID, parentColID] = decodeAddress(encodedFormula[i]);
+      graphComponent[parentRowID][parentColID].push([childRowID, childColID]);
+    }
+  }
+}
+
+// This function is to remove child from the graph component.
+function removeChildFromGraphComponent(formula, childAddress) {
+  // let [childRowID, childColID] = decodeAddress(childAddress);
+  let encodedFormula = formula.split(" ");
+
+  for (let i = 0; i < encodedFormula.length; i++) {
+    let asciiVal = encodedFormula[i].charCodeAt(0);
+    if (asciiVal >= 65 && asciiVal <= 90) {
+      let [parentRowID, parentColID] = decodeAddress(encodedFormula[i]);
+      graphComponent[parentRowID][parentColID].pop();
+    }
+  }
+}
+
 // This function is to update the new child/children cell to the Parent.
 function updateChildrenCells(parentAddress) {
   let [parentCell, parentCellProp] = getActiveCell(parentAddress);
   let children = parentCellProp.children;
 
-  for(let i = 0; i < children.length; i++) {
+  for (let i = 0; i < children.length; i++) {
     let childAddress = children[i];
     let [childCell, childCellProp] = getActiveCell(childAddress);
     let childFormula = childCellProp.formula;
@@ -52,33 +93,31 @@ function updateChildrenCells(parentAddress) {
   }
 }
 
-
 // This function is to add child cell to the parent cell.
 function addChildToParent(formula) {
-    let childAddress = addressBar.value;
-    let encodedFormula = formula.split(" ");
-    for(let i = 0; i < encodedFormula.length; i++) {
-        let asciiVal = encodedFormula[i].charCodeAt(0);
-        if(asciiVal >= 65 && asciiVal <= 90) {
-            let [parentCell, parentCellProp] = getActiveCell(encodedFormula[i]);
-            parentCellProp.children.push(childAddress);
-        }
+  let childAddress = addressBar.value;
+  let encodedFormula = formula.split(" ");
+  for (let i = 0; i < encodedFormula.length; i++) {
+    let asciiVal = encodedFormula[i].charCodeAt(0);
+    if (asciiVal >= 65 && asciiVal <= 90) {
+      let [parentCell, parentCellProp] = getActiveCell(encodedFormula[i]);
+      parentCellProp.children.push(childAddress);
     }
+  }
 }
-
 
 // This function is to remove child/children cell from the parent cell.
 function removeChildFromParent(formula) {
-    let childAddress = addressBar.value;
-    let encodedFormula = formula.split(" ");
-    for(let i = 0; i < encodedFormula.length; i++) {
-        let asciiVal = encodedFormula[i].charCodeAt(0);
-        if(asciiVal >= 65 && asciiVal <= 90) {
-            let [parentCell, parentCellProp] = getActiveCell(encodedFormula[i]);
-            let idx = parentCellProp.children.indexOf(childAddress);
-            parentCellProp.children.splice(idx, 1);
-        }
+  let childAddress = addressBar.value;
+  let encodedFormula = formula.split(" ");
+  for (let i = 0; i < encodedFormula.length; i++) {
+    let asciiVal = encodedFormula[i].charCodeAt(0);
+    if (asciiVal >= 65 && asciiVal <= 90) {
+      let [parentCell, parentCellProp] = getActiveCell(encodedFormula[i]);
+      let idx = parentCellProp.children.indexOf(childAddress);
+      parentCellProp.children.splice(idx, 1);
     }
+  }
 }
 
 // This function is to evaluate the formula written in formual bar.
