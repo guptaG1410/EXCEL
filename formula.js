@@ -17,7 +17,7 @@ for (let i = 0; i < rows; i++) {
 }
 
 let formulaBar = document.querySelector(".formula-bar");
-formulaBar.addEventListener("keydown", (e) => {
+formulaBar.addEventListener("keydown", async(e) => {
   let inputFormula = formulaBar.value;
   if (e.key == "Enter" && inputFormula) {
     // CASE: where formula changes then break old Parent-child relation, evaluate new formula and new parent-child relation.
@@ -29,11 +29,17 @@ formulaBar.addEventListener("keydown", (e) => {
     // Before evaluating the formula we need to add the child cell to the parent(again) but in the directed graph.
     addChildToGraphComponent(inputFormula, address);
     // After adding, we'd check if cycle is present or not, then we'll evaluate the formula.
-    let isCyclic = isCyclePresent(graphComponent);
-    if (isCyclic) {
-      alert(
-        "Cycle has been found | Your formula is cyclic. Kindly give it a look 😃😄!!! "
-      );
+    let cycleRowCol = isCyclePresent(graphComponent);
+    if (cycleRowCol) {
+    //   alert(
+    //     "Cycle has been found | Your formula is cyclic. Kindly give it a look 😃😄!!! "
+    //   );
+
+    let userResponse = confirm("Your formula is cyclic. Do you want to trace the path ?");
+    while(userResponse) {
+        await isCyclePresentTracePath(graphComponent, cycleRowCol);
+        userResponse = confirm("Your formula is cyclic. Do you want to trace the path ?");
+    }
       // Now remove dependency.
       removeChildFromGraphComponent(inputFormula, address);
       return;

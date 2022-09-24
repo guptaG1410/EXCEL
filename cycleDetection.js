@@ -35,12 +35,12 @@ function isCyclePresent(graphComponent) {
             if(!visited[i][j]) {
                 let isCyclic = dfsCycleDetection(graphComponent, i, j, visited, dfsVisited);
                 if(isCyclic)
-                    return true;
+                    return [i, j];
             }
         }
     }
 
-    return false;
+    return null;
 
 }
 
