@@ -50,7 +50,7 @@ bold.addEventListener("click", (e) => {
   // Modification of a cell
   cellProp.bold = !cellProp.bold; //Data change
   cell.style.fontWeight = cellProp.bold ? "bold" : "normal"; //UI change
-  bold.style.backgroundColor = cellProp.bold ? "#9dabab" : "#cdcfcf"; //UI Change
+  bold.style.backgroundColor = cellProp.bold ? "#9dabab" : "#f1f2f6"; //UI Change
 });
 
 // Adding Italic Property:
@@ -60,7 +60,7 @@ italic.addEventListener("click", (e) => {
   // Modification of a cell
   cellProp.italic = !cellProp.italic;
   cell.style.fontStyle = cellProp.italic ? "italic" : "normal";
-  italic.style.backgroundColor = cellProp.italic ? "#9dabab" : "#cdcfcf";
+  italic.style.backgroundColor = cellProp.italic ? "#9dabab" : "#f1f2f6";
 });
 
 // Adding Underlined Property:
@@ -70,7 +70,7 @@ underline.addEventListener("click", (e) => {
   // Modification of a cell
   cellProp.underline = !cellProp.underline;
   cell.style.textDecoration = cellProp.underline ? "underline" : "none";
-  underline.style.backgroundColor = cellProp.underline ? "#9dabab" : "#cdcfcf";
+  underline.style.backgroundColor = cellProp.underline ? "#9dabab" : "#f1f2f6";
 });
 
 // Adding Alignment Property:
@@ -86,19 +86,19 @@ alignment.forEach((alignEle) => {
     switch (alignValue) {
       case "left":
         leftAlign.style.backgroundColor = "#9dabab";
-        centerAlign.style.backgroundColor = "#cdcfcf";
-        rightAlign.style.backgroundColor = "#cdcfcf";
+        centerAlign.style.backgroundColor = "#f1f2f6";
+        rightAlign.style.backgroundColor = "#f1f2f6";
         break;
 
       case "center":
-        leftAlign.style.backgroundColor = "#cdcfcf";
+        leftAlign.style.backgroundColor = "#f1f2f6";
         centerAlign.style.backgroundColor = "#9dabab";
-        rightAlign.style.backgroundColor = "#cdcfcf";
+        rightAlign.style.backgroundColor = "#f1f2f6";
         break;
 
       case "right":
-        leftAlign.style.backgroundColor = "#cdcfcf";
-        centerAlign.style.backgroundColor = "#cdcfcf";
+        leftAlign.style.backgroundColor = "#f1f2f6";
+        centerAlign.style.backgroundColor = "#f1f2f6";
         rightAlign.style.backgroundColor = "#9dabab";
         break;
     }
@@ -167,11 +167,11 @@ function addListenerToAttachCellProps(cell) {
     cell.style.textAlign = cellProp.alignment;
 
     //Applying Cell Properties to UI:
-    bold.style.backgroundColor = cellProp.bold ? "#9dabab" : "#cdcfcf"; //UI Change
-    italic.style.backgroundColor = cellProp.italic ? "#9dabab" : "#cdcfcf";
+    bold.style.backgroundColor = cellProp.bold ? "#9dabab" : "#f1f2f6"; //UI Change
+    italic.style.backgroundColor = cellProp.italic ? "#9dabab" : "#f1f2f6";
     underline.style.backgroundColor = cellProp.underline
       ? "#9dabab"
-      : "#cdcfcf";
+      : "#f1f2f6";
     fontSize.value = cellProp.fontSize;
     fontFamily.value = cellProp.fontFamily;
     fontColor.value = cellProp.fontColor;
@@ -180,19 +180,19 @@ function addListenerToAttachCellProps(cell) {
     switch (cellProp.alignment) {
       case "left":
         leftAlign.style.backgroundColor = "#9dabab";
-        centerAlign.style.backgroundColor = "#cdcfcf";
-        rightAlign.style.backgroundColor = "#cdcfcf";
+        centerAlign.style.backgroundColor = "#f1f2f6";
+        rightAlign.style.backgroundColor = "#f1f2f6";
         break;
 
       case "center":
-        leftAlign.style.backgroundColor = "#cdcfcf";
+        leftAlign.style.backgroundColor = "#f1f2f6";
         centerAlign.style.backgroundColor = "#9dabab";
-        rightAlign.style.backgroundColor = "#cdcfcf";
+        rightAlign.style.backgroundColor = "#f1f2f6";
         break;
 
       case "right":
-        leftAlign.style.backgroundColor = "#cdcfcf";
-        centerAlign.style.backgroundColor = "#cdcfcf";
+        leftAlign.style.backgroundColor = "#f1f2f6";
+        centerAlign.style.backgroundColor = "#f1f2f6";
         rightAlign.style.backgroundColor = "#9dabab";
         break;
     }

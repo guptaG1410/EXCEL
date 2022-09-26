@@ -12,6 +12,7 @@ addSheetBtn.addEventListener("click", (e) => {
   `;
 
   sheetCont.appendChild(sheet);
+  sheet.scrollIntoView();
   // After appending sheet to the sheetContainer, try to create Database for each sheet separately.
   createSheetDB();
   createGraphComponent();
@@ -93,7 +94,7 @@ function handleSheetUI(sheet) {
   for (let i = 0; i < allSheetsFolders.length; i++) {
     allSheetsFolders[i].style.backgroundColor = "transparent";
   }
-  sheet.style.backgroundColor = "#717070";
+  sheet.style.backgroundColor = "#f1f2f6";
 }
 
 // This function is used for deleting a sheet.
@@ -138,5 +139,5 @@ function handleSheetUIRemoval(sheet) {
     allSheetsFolders[i].style.backgroundColor = "transparent";
   }
 
-  allSheetsFolders[0].style.backgroundColor = "#717070";
+  allSheetsFolders[0].style.backgroundColor = "#f1f2f6";
 }

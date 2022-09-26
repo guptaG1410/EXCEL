@@ -13,15 +13,29 @@ body {
   display: flex;
   align-items: center;
   padding-left: 1rem;
+  color: white;
+  font-size: large;
 }
 
 .page-action {
-  margin: 1rem;
+  margin: 1rem 1rem 0;
+  width: 3.5rem;
+  height: 2rem;
+  text-align: center;
+  color: #f1f2f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selected-page-action {
+  background-color: #f1f2f6;
+  color: #218c74;
 }
 
 .cellprop-actions-cont {
   height: 3rem;
-  background-color: #cdcfcf;
+  background-color: #f1f2f6;
   display: flex;
   align-items: center;
   padding-left: 1rem;
@@ -53,7 +67,7 @@ body {
 
 .formula-actions-cont {
   height: 2rem;
-  background-color: #cdcfcf;
+  background-color: #f1f2f6;
   display: flex;
   align-items: center;
   padding-left: 1rem;
@@ -189,5 +203,5 @@ body {
 .cell {
   height: 2rem;
   width: 5rem;
-  border: 1px solid #dfe4ea;
+  border: 1px solid lightgray;
 }
