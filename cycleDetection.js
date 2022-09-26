@@ -1,14 +1,15 @@
 // STORAGE -> One more 2-D array to store the rowID & colID of child which forms directed graph.
+let colllectedGraphComponent = [];   //It is used to contain all sheetDB.
 let graphComponent = [];
 
-for(let i = 0; i < rows; i++) {
-    let row = [];
-    for(let j = 0; j < cols; j++) {
-        // We'll store rowID & colID like [0, 1] or [2,1] or it could be any indices.
-        row.push([]);
-    }
-    graphComponent.push(row);
-}
+// for(let i = 0; i < rows; i++) {
+//     let row = [];
+//     for(let j = 0; j < cols; j++) {
+//         // We'll store rowID & colID like [0, 1] or [2,1] or it could be any indices.
+//         row.push([]);
+//     }
+//     graphComponent.push(row);
+// }
 
 // OUR MAIN ALGO STARTS FROM HERE:
 // This function is to find whether cycle is present or not.

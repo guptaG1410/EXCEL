@@ -25,6 +25,7 @@ body {
   display: flex;
   align-items: center;
   padding-left: 1rem;
+  cursor: pointer;
 }
 
 .cellprop-actions-cont > * {
@@ -100,11 +101,16 @@ body {
   margin-right: 1rem;
 }
 
+.sheet-add-icon:hover {
+  cursor: pointer;
+}
+
 .sheets-folder-cont {
   display: flex;
   align-items: center;
   height: 80%;
   width: calc(100vw - 2vw);
+  overflow: auto;
 }
 
 .sheet-folder {
@@ -112,6 +118,15 @@ body {
   font-weight: bold;
   text-decoration-thickness: 4px;
   font-size: 1rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sheet-content {
+  width: 5rem;
+  cursor: pointer;
 }
 
 .grid-cont {
@@ -168,6 +183,7 @@ body {
 
 .row {
   display: flex;
+  cursor: cell;
 }
 
 .cell {

@@ -50,6 +50,6 @@ function displayAddBar(cell, i, j) {
   });
 }
 
-// By Default click on first cell via DOM
-let firstCell = document.querySelector('.cell');
-firstCell.click();
+// // By Default click on first cell via DOM
+// let firstCell = document.querySelector('.cell');
+// firstCell.click();
